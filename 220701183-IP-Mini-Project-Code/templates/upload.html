@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Voice Recording - Alzheimer's Prediction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-image: url("/static/al.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color:lightskyblue;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: #333;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        label {
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .dropzone {
+            border: 2px dashed #bdc3c7;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dropzone.dragover {
+            border-color: #2980b9;
+            background-color: #d0eaf1;
+        }
+
+        .dropzone:hover {
+            background-color: #d0eaf1;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .btn-primary {
+            background-color: #2980b9;
+            border-color: #2980b9;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .info-section {
+            background-color:lightblue;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .info-section h4 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-section ul {
+            padding-left: 20px;
+        }
+
+        .info-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .message {
+            margin-top: 15px;
+            color: #2980b9;
+            font-weight: bold;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Upload a Voice Recording</h2>
+
+ 
+        
+        <!-- Essential Information Section -->
+        <div class="info-section">
+            <h4>Important Information:</h4>
+            <ul>
+                <li>Please ensure that the audio recording is clear and without background noise.</li>
+                <li>Audio files will be used for Alzheimer’s disease prediction by analyzing voice patterns.</li>
+                <li>Accepted file types: MP3, WAV, or OGG. File size should not exceed 10MB.</li>
+                <li>By uploading your recording, you agree to allow the data to be used for research purposes.</li>
+            </ul>
+        </div>
+        
+        <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+            <div id="dropzone" class="dropzone">
+                Drag and drop your voice recording here, or click to select a file
+                <input type="file" class="form-control" id="audioFile" name="audioFile" accept="audio/*" required>
+            </div>
+            <div class="message" id="fileMessage"></div>
+            <button type="submit" class="btn btn-primary" href="{{ url_for('ack') }}">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('audioFile');
+        const fileMessage = document.getElementById('fileMessage');
+
+        dropzone.addEventListener('click', () => fileInput.click());
+
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('dragover');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+
+            if (files.length > 0) {
+                fileInput.files = files;
+                fileMessage.textContent = 'Selected file: ' + files[0].name;
+            }
+        });
+
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file.size > 10000000) {
+                alert('File size must be less than 10MB');
+                event.target.value = '';
+                fileMessage.textContent = ''; // Clear the message
+            } else {
+                fileMessage.textContent = 'Selected file: ' + file.name; // Acknowledge file selection
+            }
+        });
+    </script>
+
+</body>
+</html>

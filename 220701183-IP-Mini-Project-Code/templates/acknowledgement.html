@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Disease Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Using a modern sans-serif font */
+    background-color: #f0f2f5; /* Light background for a clean, modern look */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container styling */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Adding a soft shadow for depth */
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-5px); /* Adds a subtle lift effect on hover */
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #4a90e2; /* Bright blue for the main heading */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Adding letter spacing for a modern feel */
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+header select {
+    padding: 10px;
+    font-size: 1rem;
+    color: #4a90e2;
+    background-color: #f0f2f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+header select:hover {
+    background-color: #e6efff; /* Adds subtle color change on hover */
+    border-color: #4a90e2;
+}
+
+/* Guide Section styling */
+#guide {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+#guide h2 {
+    font-size: 2.2rem;
+    color: #4a90e2;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#guide p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* List styling */
+#guide ul {
+    list-style: none;
+    padding: 0;
+}
+
+#guide ul li {
+    background-color: #f4f4f9;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-left: 6px solid #4a90e2; /* Thicker border for a bold effect */
+    font-size: 1rem;
+    color: #555;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+#guide ul li:hover {
+    background-color: #e6efff; /* Softer background color on hover */
+}
+
+/* Interactive hover effect for each list item */
+#guide ul li::before {
+    content: "✓";
+    position: absolute;
+    left: -25px;
+    top: 12px;
+    font-size: 1.5rem;
+    color: #4a90e2;
+    transition: transform 0.3s ease;
+}
+
+#guide ul li:hover::before {
+    transform: scale(1.2); /* Icon enlarges slightly on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    #guide h2 {
+        font-size: 1.8rem;
+    }
+
+    header select {
+        font-size: 0.9rem;
+    }
+}
+
+</style>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Alzheimer's Disease Stage Guide</h1>
+            <p>Select the stage of Alzheimer’s: 
+                <select id="stageSelect">
+                    <option value="Mild">Mild</option>
+                    <option value="Moderate" selected>Moderate</option>
+                    <option value="Severe">Severe</option>
+                </select>
+            </p>
+        </header>
+
+        <section id="guide">
+            <!-- Placeholder for dynamically loaded content -->
+        </section>
+    </div>
+
+    <script>
+        // Sample guide content for different stages
+        const guides = {
+            "Mild": `
+                <h2>Mild Alzheimer's (Early Stage)</h2>
+                <p>This is the first stage of Alzheimer's disease. At this stage, symptoms are mild and may include 
+                forgetfulness, trouble finding words, and difficulty with planning or organizing.</p>
+                <h3>Recommended Actions:</h3>
+                <ul>
+                    <li>Keep a daily planner to track important tasks.</li>
+                    <li>Stay mentally active by doing puzzles or memory games.</li>
+                    <li>Exercise regularly and eat a healthy diet.</li>
+                    <li>Consider discussing the diagnosis with close family and friends.</li>
+                </ul>
+            `,
+            "Moderate": `
+                <h2>Moderate Alzheimer's (Middle Stage)</h2>
+                <p>This stage of Alzheimer's is characterized by increased confusion, memory loss, and difficulty with daily activities.</p>
+                <h3>Recommended Actions:</h3>
+                <ul>
+                    <li>Consider having a caregiver assist with daily activities.</li>
+                    <li>Stay socially active and keep routines simple.</li>
+                    <li>Use labels around the house to help remember important information.</li>
+                    <li>Make home safety modifications, such as removing tripping hazards.</li>
+                </ul>
+            `,
+            "Severe": `
+                <h2>Severe Alzheimer's (Late Stage)</h2>
+                <p>In this stage, individuals may lose the ability to communicate, recognize family, or care for themselves.</p>
+                <h3>Recommended Actions:</h3>
+                <ul>
+                    <li>Consider full-time care from professionals or a care facility.</li>
+                    <li>Ensure comfort with soothing music, gentle touch, and familiar faces.</li>
+                    <li>Monitor eating and swallowing abilities, and consult doctors for advice on care.</li>
+                    <li>Keep the environment calm and free of loud noises or distractions.</li>
+                </ul>
+            `
+        };
+
+        // Function to load the guide content based on the selected stage
+        function loadGuide() {
+            const selectedStage = document.getElementById('stageSelect').value;
+            document.getElementById('guide').innerHTML = guides[selectedStage];
+        }
+
+        // Event listener for dropdown change
+        document.getElementById('stageSelect').addEventListener('change', loadGuide);
+
+        // Initial load of guide
+        window.onload = loadGuide;
+    </script>
+</body>
+</html>

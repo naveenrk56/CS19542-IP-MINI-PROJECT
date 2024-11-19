@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #4A90E2;
+    color: white;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f4f4f9;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: linear-gradient(to right, #4A90E2, #F2F2F2);
+    text-align: center;
+    padding: 0 50px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: white;
+    margin: 20px 0;
+}
+
+.cta-btn {
+    font-size: 1.5rem;
+    color: #fafafa;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #fafafa;
+    background: #252525;
+    box-shadow: 3px 3px #fafafa;
+    cursor: pointer;
+    margin: 35px 0;
+  }
+  
+  button:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+  }
+
+.cta-btn:hover {
+    background-color: #4A90E2;
+    color: white;
+}
+
+.info-section {
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    padding: 20px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    padding: 20px;
+    background-color: #4A90E2;
+    text-align: center;
+    color: white;
+}
+
+/* Overview Section */
+.overview-section {
+    padding: 50px;
+    background-color: #f4f4f9;
+    text-align: center;
+}
+
+.overview-section h2 {
+    font-size: 2.5rem;
+    color: #4A90E2;
+}
+
+.overview-section p {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Benefits Section */
+.benefits-section {
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.benefits-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.benefit-card {
+    padding: 20px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.benefit-card:hover {
+    transform: scale(1.05);
+}
+
+/* Technology Section */
+.technology-section {
+    padding: 50px;
+    background-color: #f4f4f9;
+    text-align: center;
+}
+
+.technology-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tech-card {
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #4A90E2;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.tech-card:hover {
+    transform: scale(1.05);
+}
